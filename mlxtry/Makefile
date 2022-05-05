@@ -2,7 +2,7 @@ NAME = try
 CC = gcc
 MLX = libmlx.a -framework OpenGL -framework AppKit
 CFLAGS = -Wall -Wextra -Werror
-SRCS = round.c
+SRCS = rainbow.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
