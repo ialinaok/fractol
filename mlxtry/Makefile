@@ -1,8 +1,8 @@
 NAME = try
 CC = gcc
-MLX = mlx/libmlx.a -framework OpenGL -framework AppKit
+MLX = libmlx.a -framework OpenGL -framework AppKit
 CFLAGS = -Wall -Wextra -Werror
-SRCS = str.c
+SRCS = round.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
