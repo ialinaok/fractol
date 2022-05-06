@@ -39,7 +39,7 @@ int	main(void)
 	init_color(&color);
 	mlx_ptr = mlx_init();
 	win_ptr = mlx_new_window(mlx_ptr, 5, 1000, "try");
-	while (y <= 600)
+	while (y <= 800)
 	{
 		mlx_pixel_put(mlx_ptr, win_ptr, x, y, c);
 		printf("x = %d,    y = %d,     c = %x\n", x, y, c);
@@ -53,6 +53,8 @@ int	main(void)
 				c = c + 0x000100;
 			else if (c == color.yellow)
 				c = c - 0x010000; // removing red
+			else if (c > color.green && c < color.sea)
+				c = c + 0x000001; // 65281 - 65536 = -255
 			else if (c < color.yellow && c > color.green)
 				c = c - 0x010000;
 			else if (c == color.green)
@@ -60,12 +62,7 @@ int	main(void)
 				printf("========before c = %x\n", c);
 				c = c + 0x000001; //adding blue
 				printf("========after c = %x\n", c);
-				printf("ÿo wtf!\n");
-			}
-			else if (c > color.green && c < color.sea)
-			{
-				c = c + 0x000001;
-				printf("ÿo wtfx2!\n");
+				printf("yo wtf!\n");
 			}
 			else if (c == color.sea)
 				c = c - 0x000100; // removing green

@@ -37,7 +37,7 @@ int	main(void)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	while (x < 500)
 	{
-		y = 100 * sin(10 * x);
+		y = 400 * sin(5 * x);
 		printf("1: %f\n", y);
 		my_mlx_pixel_put(&img, x, y, pink);
 		pink = pink + 0xf0bc;
