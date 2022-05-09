@@ -38,7 +38,7 @@ int	main(void)
 
 	init_color(&color);
 	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 300, 1400, "try");
+	win_ptr = mlx_new_window(mlx_ptr, 300, 1300, "try");
 	while (y <= 1021)
 	{
 		mlx_pixel_put(mlx_ptr, win_ptr, x, y, c);
@@ -67,7 +67,7 @@ int	main(void)
 			y++;
 		}
 	}
-	while (y > 1021 && y < 1500)
+	while (y > 1021 && y < 1300)
 	{
 		mlx_pixel_put(mlx_ptr, win_ptr, x, y, c);
 		x++;
