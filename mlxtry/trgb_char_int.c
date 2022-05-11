@@ -6,9 +6,11 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 17:56:33 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/09 18:23:58 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/05/11 08:36:07 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "helpers.h"
 
 int	create_trgb(unsigned char t, unsigned char r, unsigned char g, unsigned char b)
 {
@@ -37,5 +39,15 @@ unsigned char	get_b(int trgb)
 
 int	add_shade(double distance, int color)
 {
-	return (get_t(color) * distance);
+	int	add;
+	int	t;
+	unsigned char	r = get_r(color);
+	unsigned char	g = get_g(color);
+	unsigned char	b = get_b(color);
+
+	add = 255;
+	t = (int)round(distance * add);
+	// printf("t %x     r %x    g %x     b %x\n", t, r, g, b);
+	color = create_trgb(t, r, g, b);
+	return (color);
 }

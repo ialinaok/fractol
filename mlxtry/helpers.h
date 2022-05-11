@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 18:06:50 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/09 18:46:15 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/05/10 09:52:33 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "mlx/mlx.h"
 # include <stdio.h>
+# include <math.h>
 
 typedef	struct s_data
 {
