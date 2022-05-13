@@ -6,7 +6,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	deal_key(int key, void *param)
+int	deal_key(void)
 {
 	ft_putchar('x');
 	return (0);
@@ -24,7 +24,7 @@ int	main(void)
 	mlx_key_hook(win_ptr, deal_key, (void *)0);
 	while (y <= 500)
 	{
-		mlx_pixel_put(mlx_ptr, win_ptr, x, y, 0xFFB6C1);
+		mlx_pixel_put(mlx_ptr, win_ptr, x, y, 0xFFFFFF - 0xFF0000);
 		x++;
 		if (x == 500)
 		{
