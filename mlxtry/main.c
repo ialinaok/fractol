@@ -3,19 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 09:20:24 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/11 08:40:32 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/05/17 09:40:04 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "helpers.h"
 
+typedef	struct s_vars
+{
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+enum {
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEUP = 5,
+	ON_MOUSEMOVE = 6,
+	ON_EXPOSE = 12,
+	ON_DESTROY = 17
+};
+
+
+int	close( void *mlx, void *win)
+{
+	mlx_destroy_window(mlx, win);
+	return (0);
+}
+
+
 int	main(void)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	t_vars	vars;
 	t_data	img;
 	unsigned char	t = 0x00;
 	unsigned char	r = 0xFF;
@@ -25,9 +48,9 @@ int	main(void)
 	int		y = 0;
 	int		trgb = 0;
 
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 510, "main");
-	img.img = mlx_new_image(mlx_ptr, 500, 510);
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 500, 510, "main");
+	img.img = mlx_new_image(vars.mlx, 500, 510);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	trgb = create_trgb(t, r, g, b);
  /* creating opacity by extracting t, changing it's value +1
@@ -60,7 +83,7 @@ int	main(void)
 	// 		y++;
 	// 	}
 	// }
-	// creating opacity by using add shade function
+/*  creating opacity by using add shade function */
 
 	double dist = 0;
 	while (y < 510)
@@ -76,6 +99,7 @@ int	main(void)
 			y += 2;
 		}
 	}
-	mlx_put_image_to_window(mlx_ptr, win_ptr, img.img, 0, 0);
-	mlx_loop(mlx_ptr);
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+	mlx_hook(vars.win, ON_KEYUP, 1L<<0, close, &vars);
+	mlx_loop(vars.mlx);
 }
