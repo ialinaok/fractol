@@ -6,24 +6,25 @@
 #    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 10:26:31 by apielasz          #+#    #+#              #
-#    Updated: 2022/05/24 11:36:15 by apielasz         ###   ########.fr        #
+#    Updated: 2022/05/24 15:56:28 by apielasz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 CC = gcc
 MLX = includes/mlx/libmlx.a -framework OpenGL -framework AppKit
-LIBFT = includes/libft.a
+LIBFT = includes/libft/libft.a
+PRINTF = includes/ft_printf/libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 SRCS = srcs/main.c \
-		/utils.c
+		srcs/utils.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(MLX) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(MLX) $(LIBFT) $(PRINTF) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
