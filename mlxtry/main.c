@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 09:20:24 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/17 09:40:04 by ialinaok         ###   ########.fr       */
+/*   Updated: 2022/05/17 19:34:33 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ typedef	struct s_vars
 	void	*win;
 }				t_vars;
 
+int	close(int keycode, t_vars *vars)
+{
+	if (keycode == 53)
+		mlx_destroy_window(vars->mlx, vars->win);
+	return (0);
+}
+
 enum {
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
@@ -27,14 +34,6 @@ enum {
 	ON_EXPOSE = 12,
 	ON_DESTROY = 17
 };
-
-
-int	close( void *mlx, void *win)
-{
-	mlx_destroy_window(mlx, win);
-	return (0);
-}
-
 
 int	main(void)
 {
@@ -100,6 +99,7 @@ int	main(void)
 		}
 	}
 	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
-	mlx_hook(vars.win, ON_KEYUP, 1L<<0, close, &vars);
+	// mlx_hook(vars.win, ON_KEYUP, 1L<<0, close, &vars);
+	mlx_key_hook(vars.win, close, &vars);
 	mlx_loop(vars.mlx);
 }
