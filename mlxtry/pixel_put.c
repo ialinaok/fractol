@@ -6,18 +6,11 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 17:44:43 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/09 18:26:40 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/05/26 15:46:28 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef	struct s_data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_data;
+#include "../fractol.h"
 
 void	pixel_put(t_data *data, int x, int y, int color)
 {

@@ -1,0 +1,25 @@
+soo there we go 
+I am at the point where I have to generate the fractal
+- I take a point on the plane (aka pixel)
+- I begin top left corner, I first do the full row
+then I go down and to zero again and so on
+like before
+ez pz
+- I convert the pixel coordinates to the complex number
+>>>complex.r = (px_x - x_zero) * 4 / 1000
+>>>complex.i = (y_zero - px_y) * 4 / 1000
+- I put number in the function and I iterate iterate
+- each iteration, I have some result
+- I check if it's within [-2, 2]
+-- if it fits in the range, I put it into function again
+-- if not, I exit iterating
+- I save the number of iterations
+-- if iterations are > n (ex. 255), I quit iterating
+- once I quit, I go to color function
+if there are 255 iter, I keep stuff black
+if there are less, I vary the colors accordingly
+
+I convert pixel to complex when I reach a new pixel
+I when iterating, I do not convert anymore
+
+do I even have to go through each of the pixel? yes

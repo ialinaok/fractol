@@ -6,7 +6,7 @@
 #    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 10:26:31 by apielasz          #+#    #+#              #
-#    Updated: 2022/05/24 15:56:28 by apielasz         ###   ########.fr        #
+#    Updated: 2022/05/26 20:50:35 by apielasz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ LIBFT = includes/libft/libft.a
 PRINTF = includes/ft_printf/libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 SRCS = srcs/main.c \
-		srcs/utils.c
+		srcs/utils.c \
+		srcs/window.c \
+		srcs/math.c
 
 OBJS = $(SRCS:.c=.o)
 

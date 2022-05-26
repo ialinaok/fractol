@@ -6,11 +6,16 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:32:43 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/24 16:17:54 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/05/26 00:16:36 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
+
+void	show_error_msg(void)
+{
+	ft_printf("\n>>>ERROR<<<\nuse --help to see instructions\n\n");
+}
 
 void	show_usage(void)
 {
@@ -29,13 +34,8 @@ int	find_set(char *argv)
 	char	*sets[2] = {"Mandelbrot", "Julia"};
 	if (ft_strncmp(argv, "--help", 10) == 0)
 		show_usage();
-	while (n < 2)
-	{
+	while (n++ < 2)
 		if (ft_strncmp(argv, sets[n], 10) == 0)
-		{
 			return (n);
-		}
-		n++;
-	}
 	return (23);
 }

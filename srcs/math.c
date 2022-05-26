@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 22:49:12 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/26 16:48:45 by apielasz         ###   ########.fr       */
+/*   Created: 2022/05/26 20:25:01 by apielasz          #+#    #+#             */
+/*   Updated: 2022/05/26 21:11:34 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-int	main(int argc, char *argv[])
+double	abs_of_cmplx(t_complex *z)
 {
-	int n = 23;
+	return (sqrt(pow(z->r, 2) + pow(z->i, 2)));
+}
 
-	if (argc < 2)
-		show_error_msg();
-	if (argv[1])
-		n = find_set(argv[1]);
-	get_started(argv[1]);
-	return (0);
+double	add_cmplx(t_complex *z)
+{
+	
 }
