@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math.c                                             :+:      :+:    :+:   */
+/*   trgb.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 20:25:01 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/26 23:29:02 by apielasz         ###   ########.fr       */
+/*   Created: 2022/05/26 23:48:03 by apielasz          #+#    #+#             */
+/*   Updated: 2022/05/26 23:51:40 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-double	abs_of_cmplx(t_complex z)
+int	create_trgb(int t, int r, int g, int b)
 {
-	return (sqrt(pow(z.r, 2) + pow(z.i, 2)));
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-t_complex	add_cmplx(t_complex z, t_complex c)
+int	get_t(int trgb)
 {
-	t_complex	ret;
-
-	ret.r = z.r + c.r;
-	ret.i = z.i + c.i;
-	return (ret);
+	return ((trgb >> 24) & 0xFF);
 }
 
-t_complex	multi_cmplx(t_complex z, t_complex c)
+int	get_r(int trgb)
 {
-	t_complex	ret;
-	
-	ret.r = (z.r * c.r) - (z.i * c.i);
-	ret.i = (z.r * c.i) + (z.i * c.r);
-	return (ret);
+	return ((trgb >> 16) & 0xFF);
+}
+
+int	get_g(int trgb)
+{
+	return ((trgb >> 8) & 0xFF);
+}
+
+int	get_b(int trgb)
+{
+	return (trgb & 0xFF);
 }

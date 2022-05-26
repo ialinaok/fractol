@@ -23,3 +23,6 @@ I convert pixel to complex when I reach a new pixel
 I when iterating, I do not convert anymore
 
 do I even have to go through each of the pixel? yes
+
+I check for the number to be within two, but it doesnt affect how I change the color
+the color is dependent purely on iterations

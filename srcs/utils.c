@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:32:43 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/26 00:16:36 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/05/27 00:37:27 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ int	find_set(char *argv)
 
 	n = 0;
 	char	*sets[2] = {"Mandelbrot", "Julia"};
-	if (ft_strncmp(argv, "--help", 10) == 0)
+	if (ft_strncmp(argv, "--help", 5) == 0)
 		show_usage();
-	while (n++ < 2)
+	while (n < 2)
+	{
 		if (ft_strncmp(argv, sets[n], 10) == 0)
 			return (n);
+		n++;
+	}
 	return (23);
 }

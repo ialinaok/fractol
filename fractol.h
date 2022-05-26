@@ -53,5 +53,22 @@ int		find_set(char *argv);
 int		get_started(char *set);
 int		close_window(int keycode, t_ptr *ptr);
 void	pixel_put(t_data *img, int x, int y, int color);
+/* trgb.c */
+int	create_trgb(int t, int r, int g, int b);
+int	get_t(int trgb);
+int	get_r(int trgb);
+int	get_g(int trgb);
+int	get_b(int trgb);
+/* color.c */
+int	paint_my_wrld(int iterations);
+/* math.c */
+t_complex	multi_cmplx(t_complex z, t_complex c);
+t_complex	add_cmplx(t_complex z, t_complex c);
+double		abs_of_cmplx(t_complex z);
+/* mandelbrot.c */
+void	mandelbrot_init(t_coordi *screen);
+void	mandelbrot_pxl_to_cmplx(t_complex *c, t_coordi *screen, t_data *img);
+int		mandelbrot_iter(t_complex c);
+void	mandelbrot(t_data *img);
 
 #endif

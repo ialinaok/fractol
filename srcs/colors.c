@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math.c                                             :+:      :+:    :+:   */
+/*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 20:25:01 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/26 23:29:02 by apielasz         ###   ########.fr       */
+/*   Created: 2022/05/26 23:56:26 by apielasz          #+#    #+#             */
+/*   Updated: 2022/05/27 00:03:34 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-double	abs_of_cmplx(t_complex z)
+int	paint_my_wrld(int iterations)
 {
-	return (sqrt(pow(z.r, 2) + pow(z.i, 2)));
-}
+	int	t;
+	int	r;
+	int	g;
+	int	b;
 
-t_complex	add_cmplx(t_complex z, t_complex c)
-{
-	t_complex	ret;
-
-	ret.r = z.r + c.r;
-	ret.i = z.i + c.i;
-	return (ret);
-}
-
-t_complex	multi_cmplx(t_complex z, t_complex c)
-{
-	t_complex	ret;
-	
-	ret.r = (z.r * c.r) - (z.i * c.i);
-	ret.i = (z.r * c.i) + (z.i * c.r);
-	return (ret);
+	t = 0x00;
+	if (iterations == MAX_ITER)
+	{
+		r = 0x00;
+		g = 0x00;
+		b = 0x00;
+	}
+	else
+	{
+		r = 0xFF;
+		g = 0x45;
+		b = 0xB1;
+	}
+	return (create_trgb(t, r, g, b));
 }
