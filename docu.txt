@@ -9,6 +9,7 @@ ez pz
 >>>complex.r = (px_x - x_zero) * 4 / 1000
 >>>complex.i = (y_zero - px_y) * 4 / 1000
 - I put number in the function and I iterate iterate
+>>>I can't use the pow function, because 
 - each iteration, I have some result
 - I check if it's within [-2, 2]
 -- if it fits in the range, I put it into function again
@@ -26,3 +27,8 @@ do I even have to go through each of the pixel? yes
 
 I check for the number to be within two, but it doesnt affect how I change the color
 the color is dependent purely on iterations
+
+the square - math was flipped and I was iterating through the same number over and over
+and also - I didn't typecast the conversion from px to complex to doubles
+
+now I have the fractallll, so let's paint it nicely

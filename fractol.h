@@ -45,6 +45,14 @@ typedef struct	s_data
 	int		px_y;
 }				t_data;
 
+typedef struct	s_trgb
+{
+	int	t;
+	int	r;
+	int	g;
+	int	b;
+}			t_trgb;
+
 /* utils.c */
 void	show_error_msg(void);
 void	show_usage(void);
@@ -63,12 +71,12 @@ int	get_b(int trgb);
 int	paint_my_wrld(int iterations);
 /* math.c */
 t_complex	multi_cmplx(t_complex z, t_complex c);
-t_complex	add_cmplx(t_complex z, t_complex c);
+t_complex	add_cmplx(t_complex z, t_complex *c);
 double		abs_of_cmplx(t_complex z);
 /* mandelbrot.c */
 void	mandelbrot_init(t_coordi *screen);
 void	mandelbrot_pxl_to_cmplx(t_complex *c, t_coordi *screen, t_data *img);
-int		mandelbrot_iter(t_complex c);
+int		mandelbrot_iter(t_complex *c);
 void	mandelbrot(t_data *img);
 
 #endif

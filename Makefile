@@ -6,7 +6,7 @@
 #    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 10:26:31 by apielasz          #+#    #+#              #
-#    Updated: 2022/05/27 00:21:16 by apielasz         ###   ########.fr        #
+#    Updated: 2022/05/27 16:00:55 by apielasz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = srcs/main.c \
 		srcs/utils.c \
 		srcs/window.c \
-		srcs/math.c \
+		srcs/cmplx_math.c \
 		srcs/trgb.c \
 		srcs/colors.c \
 		fractals/mandelbrot.c
