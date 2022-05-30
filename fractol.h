@@ -53,6 +53,14 @@ typedef struct	s_trgb
 	int	b;
 }			t_trgb;
 
+typedef struct s_hsv
+{
+	int	h;
+	int	s;
+	int	v;
+}			t_hsv;
+
+
 /* utils.c */
 void	show_error_msg(void);
 void	show_usage(void);
