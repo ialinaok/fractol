@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:19:22 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/27 00:41:55 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/05/31 18:14:02 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	pixel_put(t_data *img, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int	get_started(char *set)
+int	get_started(int set, int color)
 {
 	t_ptr	ptr;
 	t_data	img;
@@ -37,8 +37,9 @@ int	get_started(char *set)
 		return (0);
 	ptr.win = mlx_new_window(ptr.mlx, WIN_X, WIN_Y, "fractol, bby!");
 	img.img = mlx_new_image(ptr.mlx, WIN_X, WIN_Y);
+	img.color_scheme = color;
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	if (find_set(set) == 0) //mandelbrot
+	if (set == 0) //mandelbrot
 		mandelbrot(&img);
 	mlx_put_image_to_window(ptr.mlx, ptr.win, img.img, 0, 0);
 	mlx_key_hook(ptr.win, close_window, &ptr);

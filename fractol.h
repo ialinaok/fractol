@@ -8,8 +8,8 @@
 # include <math.h>
 # include <unistd.h>
 
-#define WIN_X 1000
-#define WIN_Y 1000
+#define WIN_X 1300
+#define WIN_Y 1200
 #define MAX_ITER 255
 
 typedef struct	s_ptr
@@ -43,6 +43,7 @@ typedef struct	s_data
 	int		endian;
 	int		px_x;
 	int		px_y;
+	int		color_scheme;
 }				t_data;
 
 typedef struct	s_trgb
@@ -53,20 +54,13 @@ typedef struct	s_trgb
 	int	b;
 }			t_trgb;
 
-typedef struct s_hsv
-{
-	int	h;
-	int	s;
-	int	v;
-}			t_hsv;
-
-
 /* utils.c */
 void	show_error_msg(void);
 void	show_usage(void);
 int		find_set(char *argv);
+int	find_color(char *argv2);
 /* window.c */
-int		get_started(char *set);
+int		get_started(int set, int color);
 int		close_window(int keycode, t_ptr *ptr);
 void	pixel_put(t_data *img, int x, int y, int color);
 /* trgb.c */
@@ -75,15 +69,16 @@ int	get_t(int trgb);
 int	get_r(int trgb);
 int	get_g(int trgb);
 int	get_b(int trgb);
-/* color.c */
-int	paint_my_wrld(int iterations);
+/* colors.c */
+int	paint_my_wrld(int iterations, t_data *img);
+void	bernstein(int iterations, t_trgb *trgb);
 /* math.c */
 t_complex	multi_cmplx(t_complex z, t_complex c);
 t_complex	add_cmplx(t_complex z, t_complex *c);
 double		abs_of_cmplx(t_complex z);
 /* mandelbrot.c */
 void	mandelbrot_init(t_coordi *screen);
-void	mandelbrot_pxl_to_cmplx(t_complex *c, t_coordi *screen, t_data *img);
+t_complex	mandelbrot_pxl_to_cmplx(t_coordi *screen, t_data *img);
 int		mandelbrot_iter(t_complex *c);
 void	mandelbrot(t_data *img);
 

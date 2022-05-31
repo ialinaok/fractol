@@ -32,3 +32,32 @@ the square - math was flipped and I was iterating through the same number over a
 and also - I didn't typecast the conversion from px to complex to doubles
 
 now I have the fractallll, so let's paint it nicely
+
+ok, so:
+I only reach the max iter if the thing doesn't escape
+so I can just put the condition for coloring: if (iter == 255), don't even color and put pixel there
+big redesign of the color function is necessary
+there's no need to generate the pixel if it's not colored
+this is the first optimazition that I can make already
+<<< DONE >>>
+<<< TO DO >>>
+- play with the colors, make them transitions smoothly
+	- use the sin function to change the colors smoothly
+	- figure out how to link different coloring schemes from the CL
+	1) add color_scheme to the img struct
+	2) in main pass the argv[2] value to the get_started
+	3) in get_started, put the argv value in the img struct
+	4) pass the color_scheme (aka argv[2] to the paint_my_wrld function)
+---- set one default coloring scheme in case ppl do not want to choose colors
+- change the scale
+	- the scale of the mandelbrot has to be the same as the scale of the screen
+	- 3 : 2
+
+./fractol Mandelbrot 
+err: so, the argv[2] if doesnt ever enter
+so color scheme is never set
+so the bernstein shouldnt even go live
+
+ok, enters the if, but doesnt produce colors 
+I\ve no idea where the colors come from :D -----> GARBAGE VALUES :')
+SO gotta figure out the math for bernstein
