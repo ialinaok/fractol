@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:19:40 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/31 22:09:54 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/01 18:03:51 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	mandelbrot_init(t_coordi *screen)
 	screen->x_max = 0.6;
 	screen->y_min = -1.2;
 	screen->y_max = 1.2;
-	// screen->x_zero = WIN_X / 2;
-	// screen->y_zero = WIN_Y / 2;
 }
 
 t_complex	mandelbrot_pxl_to_cmplx(t_coordi *screen, t_data *img)
@@ -49,21 +47,21 @@ int	mandelbrot_iter(t_complex *c)
 	return (i);
 }
 
-void	mandelbrot(t_data *img)
+void	mandelbrot(t_data *img, t_ptr *ptr)
 {
 	t_complex	c;
-	t_coordi	screen;
+	// t_coordi	screen;
 	int			i;
 	int			color;
 
 	img->px_y = 0;
-	mandelbrot_init(&screen);
+	mandelbrot_init(&ptr->screen);
 	while (img->px_y < WIN_Y)
 	{
 		img->px_x = 0;
 		while (img->px_x < WIN_X)
 		{
-			c = mandelbrot_pxl_to_cmplx(&screen, img);
+			c = mandelbrot_pxl_to_cmplx(&ptr->screen, img);
 			i = mandelbrot_iter(&c);
 			if (i < MAX_ITER)
 			{

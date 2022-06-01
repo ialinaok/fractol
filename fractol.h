@@ -12,10 +12,19 @@
 #define WIN_Y 1200
 #define MAX_ITER 255
 
+typedef struct	s_coordi
+{
+	double	x_min;
+	double	x_max;
+	double	y_min;
+	double	y_max;
+}				t_coordi;
+
 typedef struct	s_ptr
 {
-	void	*mlx;
-	void	*win;
+	void		*mlx;
+	void		*win;
+	t_coordi	screen;
 }				t_ptr;
 
 typedef struct	s_complex
@@ -23,16 +32,6 @@ typedef struct	s_complex
 	double	r;
 	double	i;
 }				t_complex;
-
-typedef struct	s_coordi
-{
-	double	x_min;
-	double	x_max;
-	double	y_min;
-	double	y_max;
-	int		x_zero;
-	int		y_zero;
-}				t_coordi;
 
 typedef struct	s_data
 {
@@ -58,11 +57,13 @@ typedef struct	s_trgb
 void	show_error_msg(void);
 void	show_usage(void);
 int		find_set(char *argv);
-int	find_color(char *argv2);
+int		find_color(char *argv2);
 /* window.c */
 int		get_started(int set, int color);
-int		close_window(int keycode, t_ptr *ptr);
+int		key_hooks(int keycode, t_ptr *ptr);
 void	pixel_put(t_data *img, int x, int y, int color);
+int		close_x(t_ptr *ptr);
+void	arrow_moves(int keycode, t_ptr *ptr);
 /* trgb.c */
 int	create_trgb(int t, int r, int g, int b);
 int	get_t(int trgb);
@@ -70,16 +71,18 @@ int	get_r(int trgb);
 int	get_g(int trgb);
 int	get_b(int trgb);
 /* colors.c */
-int	paint_my_wrld(int iterations, t_data *img);
+int		paint_my_wrld(int iterations, t_data *img);
+void	default_color(int iterations, t_trgb *trgb);
 void	bernstein(int iterations, t_trgb *trgb);
+void	blue(int iterations, t_trgb *trgb)
 /* math.c */
 t_complex	multi_cmplx(t_complex z, t_complex c);
 t_complex	add_cmplx(t_complex z, t_complex *c);
 double		abs_of_cmplx(t_complex z);
 /* mandelbrot.c */
-void	mandelbrot_init(t_coordi *screen);
+void		mandelbrot_init(t_coordi *screen);
 t_complex	mandelbrot_pxl_to_cmplx(t_coordi *screen, t_data *img);
-int		mandelbrot_iter(t_complex *c);
-void	mandelbrot(t_data *img);
+int			mandelbrot_iter(t_complex *c);
+void		mandelbrot(t_data *img, t_ptr *ptr);
 
 #endif

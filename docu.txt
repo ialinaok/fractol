@@ -61,3 +61,36 @@ so the bernstein shouldnt even go live
 ok, enters the if, but doesnt produce colors 
 I\ve no idea where the colors come from :D -----> GARBAGE VALUES :')
 SO gotta figure out the math for bernstein
+f i x e d - iterations were not typecasted to double
+
+<<<TO DO>>>
+- zoom into the pouse position
+	-> establish mouse position (hooking there we go)
+	-> make it a new... what?
+- move the fractal with the arrow keys
+	-> I guess the middle is then located in a different place
+	-> the pixels are calculated anew according to the new centre
+	-> the visible limits are changed
+	-> change the limits by a percentage of the keys
+	-> hook the program to wait for the arrow keys and feed them the function // let's use the same funct for all keys (for esc etc)
+																				to only hook in one function
+	- I only create the coordi in the mandelbrot (further than hooking functions), so I cannot 
+	use it to recalculate the pixels 
+	buuuut what if I put the t_coordi in the mlx ptr?
+	-----did that, works fine-----t_coordi is now in the ptr struct----it's a nested struct now----
+	then it's created already in the get_started. and then I can just use double -> to access the coordi
+	but then I have to pass also the ptr to the mandelbrot
+...hint - let the ide choose . or -> automatically 
+	each key press move px pixels
+	ok, compiles, but doesn't move. does it have sth to do with nested struct?
+	
+- exit the program when red x on the window clicked
+	-> tried mlx hook ON_DESTROY - not working
+	-> idk why. other ppl have this solution. could be bc it's not in main....?
+- color range shift - a loop inside which bernstein colors are changed
+	- entered when a key pressed
+	- exited when a key pressed
+- color play - the more iter, the closer the thing is
+				the less iter, the faster the thing escapes
+				so I want to fade these that go fast much stronger
+- Julia sets
