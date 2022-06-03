@@ -124,3 +124,6 @@ ok, to-do's for the day:
 
 DO SOME DUMB SHIT - just render sth else than mandelbrot
 
+gotta fix the lagging issue :')
+and find some nicer colors for Julia'same
+and do the Sierpinsky triangle
