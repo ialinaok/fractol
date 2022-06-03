@@ -83,7 +83,8 @@ f i x e d - iterations were not typecasted to double
 ...hint - let the ide choose . or -> automatically 
 	each key press move px pixels
 	ok, compiles, but doesn't move. does it have sth to do with nested struct?
-	
+	>>>> nope, I have to hook the function that renders the fractal
+	mlx_loop_hook or sth like that
 - exit the program when red x on the window clicked
 	-> tried mlx hook ON_DESTROY - not working
 	-> idk why. other ppl have this solution. could be bc it's not in main....?
@@ -94,3 +95,33 @@ f i x e d - iterations were not typecasted to double
 				the less iter, the faster the thing escapes
 				so I want to fade these that go fast much stronger
 - Julia sets
+
+>>>redesign of structs - putting coordi and img structs into the big data struct
+and in the future I can just pass this around
+works after first redesign - it wasnt actually that big - I only used data in mandelbrot so far
+
+ok, it was working until I created the render function and changed how I direct the program into sets
+and now it segfaults
+what's also different - I create the data struct in main, so above the mlx functions
+I will try moving the mlx things to the main
+and initialize in the check_set function
+
+ok moved to main and doesn't segfault anymore XD
+the window opens, but is very very laggy
+
+it's not laggy without the render function in the mlx_loop_hook
+
+ok nvm. I am not passing it to the hook for now.... and I've no idea why it's so laggy with my position 
+changing function
+
+what I want to do - initialize the values of the limits already in the function checking for fractals
+
+ok, to-do's for the day:
+- try to malloc the stuff
+- j u l i a for the last timeeeee ugh
+- try to have thing generating with another approach 
+- put init somewhere else in the input checkin functions
+- try to call the r
+
+DO SOME DUMB SHIT - just render sth else than mandelbrot
+

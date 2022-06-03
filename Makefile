@@ -6,7 +6,7 @@
 #    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 10:26:31 by apielasz          #+#    #+#              #
-#    Updated: 2022/05/27 16:00:55 by apielasz         ###   ########.fr        #
+#    Updated: 2022/06/03 16:33:28 by apielasz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,14 @@ CC = gcc
 MLX = includes/mlx/libmlx.a -framework OpenGL -framework AppKit
 LIBFT = includes/libft/libft.a
 PRINTF = includes/ft_printf/libftprintf.a
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 SRCS = srcs/main.c \
 		srcs/utils.c \
 		srcs/window.c \
 		srcs/cmplx_math.c \
 		srcs/trgb.c \
 		srcs/colors.c \
+		srcs/render.c \
 		fractals/mandelbrot.c
 
 OBJS = $(SRCS:.c=.o)

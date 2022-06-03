@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:19:40 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/01 18:03:51 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/03 16:58:13 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ void	mandelbrot_init(t_coordi *screen)
 	screen->y_max = 1.2;
 }
 
-t_complex	mandelbrot_pxl_to_cmplx(t_coordi *screen, t_data *img)
+t_complex	mandelbrot_pxl_to_cmplx(t_data *data)
 {
 	t_complex	c;
 
-	c.r = screen->x_min + (img->px_x / (double)WIN_X) * (screen->x_max - screen->x_min);
-	c.i = screen->y_min + (img->px_y / (double)WIN_Y) * (screen->y_max - screen->y_min);
+	c.r = data->screen.x_min + (data->img.px_x / (double)WIN_X) \
+	* (data->screen.x_max - data->screen.x_min);
+	c.i = data->screen.y_min + (data->img.px_y / (double)WIN_Y) \
+	* (data->screen.y_max - data->screen.y_min);
 	// c.r = ((double)img->px_x - (double)screen->x_zero) * 3 / WIN_X;
 	// c.i = ((double)screen->y_zero - (double)img->px_y) * 2 / WIN_Y;
 	return (c);
@@ -47,29 +49,29 @@ int	mandelbrot_iter(t_complex *c)
 	return (i);
 }
 
-void	mandelbrot(t_data *img, t_ptr *ptr)
+void	mandelbrot(t_data *data)
 {
 	t_complex	c;
-	// t_coordi	screen;
 	int			i;
 	int			color;
 
-	img->px_y = 0;
-	mandelbrot_init(&ptr->screen);
-	while (img->px_y < WIN_Y)
+	data->img.px_y = 0;
+	mandelbrot_init(&data->screen);
+	while (data->img.px_y < WIN_Y)
 	{
-		img->px_x = 0;
-		while (img->px_x < WIN_X)
+		data->img.px_x = 0;
+		while (data->img.px_x < WIN_X)
 		{
-			c = mandelbrot_pxl_to_cmplx(&ptr->screen, img);
+			c = mandelbrot_pxl_to_cmplx(data);
 			i = mandelbrot_iter(&c);
+			// printf("iterations: %d\n", i);
 			if (i < MAX_ITER)
 			{
-				color = paint_my_wrld(i, img);
-				pixel_put(img, img->px_x, img->px_y, color);
+				color = paint_my_wrld(i, data);
+				pixel_put(data, color);
 			}
-			img->px_x++;
+			data->img.px_x++;
 		}
-		img->px_y++;
+		data->img.px_y++;
 	}
 }

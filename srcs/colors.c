@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 23:56:26 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/01 18:57:18 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/03 17:41:18 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ void	blue(int iterations, t_trgb *trgb)
 	trgb->b = 8.5 * pow((1 - x), 3) * x * 255;
 }
 
-int	paint_my_wrld(int iterations, t_data *img)
+int	paint_my_wrld(int iterations, t_data *data)
 {
 	t_trgb	trgb;
 
 	trgb.t = 0x00;
-	if (img->color_scheme == -1) // default
+	if (data->color_set == -1) // default
 		default_color(iterations, &trgb);
-	else if (img->color_scheme == 0) // Bernstein
+	else if (data->color_set == 0) // Bernstein
 		bernstein(iterations, &trgb);
-	else if (img->color_scheme == 1)
+	else if (data->color_set == 1) // Blue
 		blue(iterations, &trgb);
 	return (create_trgb(trgb.t, trgb.r, trgb.g, trgb.b));
 }

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:32:43 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/01 18:58:46 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/03 16:42:07 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,17 @@ int	find_set(char *argv1)
 			return (n);
 		n++;
 	}
-	return (23);
+	return (-1);
 }
 
 int	find_color(char *argv2)
 {
-	int	n;
 
-	n = 0;
-	char	*sets[2] = {"Spacey", "Blue"};
-	while (n < 2)
-	{
-		if (ft_strncmp(argv2, sets[n], 10) == 0)
-			return (n);
-		n++;
-	}
-	return (23);
+	// char	*sets[2] = {"Spacey", "Blue"};
+
+		if (ft_strncmp(argv2, "Spacey", ft_strlen(argv2)) == 0)
+			return (0);
+		if (ft_strncmp(argv2, "Blue", ft_strlen(argv2)) == 0)
+			return (1);
+	return (-1);
 }
