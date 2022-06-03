@@ -121,7 +121,6 @@ ok, to-do's for the day:
 - j u l i a for the last timeeeee ugh
 - try to have thing generating with another approach 
 - put init somewhere else in the input checkin functions
-- try to call the r
 
 DO SOME DUMB SHIT - just render sth else than mandelbrot
 

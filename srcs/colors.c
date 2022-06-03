@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 23:56:26 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/03 17:41:18 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/03 22:13:29 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	paint_my_wrld(int iterations, t_data *data)
 	t_trgb	trgb;
 
 	trgb.t = 0x00;
+	// ft_printf("color %d", data->color_set);
 	if (data->color_set == -1) // default
 		default_color(iterations, &trgb);
 	else if (data->color_set == 0) // Bernstein

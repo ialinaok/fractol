@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:32:43 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/03 16:42:07 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/04 01:12:56 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,49 @@ void	show_usage(void)
 // 0 for Mandelbrot
 // 1 for Julia
 
-int	find_set(char *argv1)
+int	find_set(char *argv1, t_data *data)
 {
-	int	n;
-
-	n = 0;
-	char	*sets[2] = {"Mandelbrot", "Julia"};
 	if (ft_strncmp(argv1, "--help", 5) == 0)
 		show_usage();
-	while (n < 2)
+	else if (ft_strncmp(argv1, "Mandelbrot", 10) == 0)
 	{
-		if (ft_strncmp(argv1, sets[n], 10) == 0)
-			return (n);
-		n++;
+		mandelbrot_init(&data->screen);
+		return (0);
 	}
+	else if (ft_strncmp(argv1, "Julia", 5) == 0)
+	{
+		julia_init(&data->screen);
+		if (ft_strncmp(argv1, "Julia_broccoli", 14) == 0)
+			return (1);
+		else if (ft_strncmp(argv1, "Julia_chineese", 14) == 0)
+			return (2);
+		else if (ft_strncmp(argv1, "Julia_snowflake", 15) == 0)
+			return (3);
+		else if (ft_strncmp(argv1, "Julia_medusa", 12) == 0)
+			return (4);
+	}
+	else
+		show_usage();
 	return (-1);
 }
 
 int	find_color(char *argv2)
 {
+	if (ft_strncmp(argv2, "Spacey", ft_strlen(argv2)) == 0)
+		return (0);
+	else if (ft_strncmp(argv2, "Blue", ft_strlen(argv2)) == 0)
+		return (1);
+	else
+		return (-1);
+}
 
-	// char	*sets[2] = {"Spacey", "Blue"};
-
-		if (ft_strncmp(argv2, "Spacey", ft_strlen(argv2)) == 0)
-			return (0);
-		if (ft_strncmp(argv2, "Blue", ft_strlen(argv2)) == 0)
-			return (1);
-	return (-1);
+void	analyse_input(int argc, char **argv, t_data *data)
+{
+	if (argc < 2)
+		show_error_msg();
+	data->color_set = -1;
+	if (argv[1])
+		data->fractal_set = find_set(argv[1], data);
+	if (argv[2])
+		data->color_set = find_color(argv[2]);
 }

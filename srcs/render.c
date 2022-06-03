@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 23:42:59 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/03 17:47:43 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/04 01:10:07 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,22 @@
 
 int	render(t_data *data)
 {
+	ft_printf("%d", data->fractal_set);
 	// ft_bzero(data->img.addr, WIN_X * WIN_Y * 4);
 	if (data->fractal_set == 0) // Mandelbrot
 	{
 		// printf("TEST_TEST\n");
-		// mandelbrot(data);
-		dumb_shit(data);
+		mandelbrot(data);
+		// dumb_shit(data);
 	}
+	else if (data->fractal_set == 1) // Julia_broccoli
+		normal_julia(data, -0.7269, 0.1889);
+	else if (data->fractal_set == 2) // Julia_chineese
+		normal_julia(data, -0.835, -0.2321);
+	else if (data->fractal_set == 3) // Julia_snowflake
+		normal_julia(data, -0.70176, -0.3842);
+	else if (data->fractal_set == 4) // Julia_medusa
+		normal_julia(data, 0.285, 0.01);
 	return (0);
 }
 

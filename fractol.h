@@ -12,7 +12,7 @@
 
 #define WIN_X 1300
 #define WIN_Y 1200
-#define MAX_ITER 255
+#define MAX_ITER 500
 
 typedef struct	s_coordi
 {
@@ -60,8 +60,9 @@ typedef struct	s_trgb
 /* utils.c */
 void	show_error_msg(void);
 void	show_usage(void);
-int		find_set(char *argv);
+int		find_set(char *argv, t_data *data);
 int		find_color(char *argv2);
+void	analyse_input(int argc, char **argv, t_data *data);
 /* window.c */
 int		key_hooks(int keycode, t_data *data);
 void	pixel_put(t_data *data, int color);
@@ -88,6 +89,10 @@ void		mandelbrot_init(t_coordi *screen);
 t_complex	mandelbrot_pxl_to_cmplx(t_data *data);
 int			mandelbrot_iter(t_complex *c);
 void		mandelbrot(t_data *data);
+/* julia.c */
+void	julia_init(t_coordi *screen);
+int	normal_julia_iter(t_complex *z, t_complex c);
+void	normal_julia(t_data *data, double r, double i);
 /* cmplx_math.c */
 t_complex	multi_cmplx(t_complex z, t_complex c);
 t_complex	add_cmplx(t_complex z, t_complex *c);

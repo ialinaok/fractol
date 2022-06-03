@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:19:40 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/03 16:58:13 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/04 00:39:22 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	mandelbrot(t_data *data)
 	int			color;
 
 	data->img.px_y = 0;
-	mandelbrot_init(&data->screen);
 	while (data->img.px_y < WIN_Y)
 	{
 		data->img.px_x = 0;
@@ -64,7 +63,6 @@ void	mandelbrot(t_data *data)
 		{
 			c = mandelbrot_pxl_to_cmplx(data);
 			i = mandelbrot_iter(&c);
-			// printf("iterations: %d\n", i);
 			if (i < MAX_ITER)
 			{
 				color = paint_my_wrld(i, data);
