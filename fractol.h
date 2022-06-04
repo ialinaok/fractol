@@ -10,9 +10,17 @@
 
 # include <stdio.h>
 
-#define WIN_X 1300
-#define WIN_Y 1200
-#define MAX_ITER 500
+#define WIN_X 936	// 1300
+#define WIN_Y 864	// 1200
+#define MAX_ITER 25
+
+typedef	struct	s_opti
+{
+	int	x_min_offset;
+	int	x_max_offset;
+	int	y_min_offset;
+	int	y_max_offset;
+}				t_opti;
 
 typedef struct	s_coordi
 {
@@ -29,6 +37,7 @@ typedef struct	s_img
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		color;
 	int		px_x;
 	int		px_y;
 }				t_img;
@@ -68,6 +77,7 @@ int		key_hooks(int keycode, t_data *data);
 void	pixel_put(t_data *data, int color);
 int		close_x(t_data *data);
 void	arrow_moves(int keycode, t_data *data);
+void	put_image_to_image(void *dest, void *src, int x_offset, int y_offset);
 /* render.c */
 int	render(t_data *data);
 int	get_started(t_data *data);
@@ -85,12 +95,12 @@ void	default_color(int iterations, t_trgb *trgb);
 void	bernstein(int iterations, t_trgb *trgb);
 void	blue(int iterations, t_trgb *trgb);
 /* mandelbrot.c */
-void		mandelbrot_init(t_coordi *screen);
+void		mandelbrot_init(t_data *data);
 t_complex	mandelbrot_pxl_to_cmplx(t_data *data);
 int			mandelbrot_iter(t_complex *c);
 void		mandelbrot(t_data *data);
 /* julia.c */
-void	julia_init(t_coordi *screen);
+void	julia_init(t_data *data);
 int	normal_julia_iter(t_complex *z, t_complex c);
 void	normal_julia(t_data *data, double r, double i);
 /* cmplx_math.c */

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:32:43 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/04 01:12:56 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/04 15:51:36 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ int	find_set(char *argv1, t_data *data)
 		show_usage();
 	else if (ft_strncmp(argv1, "Mandelbrot", 10) == 0)
 	{
-		mandelbrot_init(&data->screen);
+		mandelbrot_init(data);
 		return (0);
 	}
 	else if (ft_strncmp(argv1, "Julia", 5) == 0)
 	{
-		julia_init(&data->screen);
+		julia_init(data);
 		if (ft_strncmp(argv1, "Julia_broccoli", 14) == 0)
 			return (1);
 		else if (ft_strncmp(argv1, "Julia_chineese", 14) == 0)
@@ -50,6 +50,8 @@ int	find_set(char *argv1, t_data *data)
 			return (3);
 		else if (ft_strncmp(argv1, "Julia_medusa", 12) == 0)
 			return (4);
+		else
+			show_usage();
 	}
 	else
 		show_usage();

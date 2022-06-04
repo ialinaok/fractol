@@ -6,18 +6,18 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 23:44:56 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/04 01:19:41 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/04 16:58:45 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-void	julia_init(t_coordi *screen)
+void	julia_init(t_data *data)
 {
-	screen->x_min = -1.6;
-	screen->x_max = 1.6;
-	screen->y_min = -1.477;
-	screen->y_max = 1.5;
+	data->screen.x_min = -1.6;
+	data->screen.x_max = 1.6;
+	data->screen.y_min = -1.477;
+	data->screen.y_max = 1.5;
 }
 
 int	normal_julia_iter(t_complex *z, t_complex c)
@@ -54,14 +54,11 @@ void	normal_julia(t_data *data, double r, double i)
 		{
 			z = mandelbrot_pxl_to_cmplx(data);
 			iter = normal_julia_iter(&z, c);
-			if (iter < MAX_ITER)
-			{
-				color = paint_my_wrld(iter, data);
-				// color = julia_default(iter, data);
-				pixel_put(data, color);
-			}
+			color = paint_my_wrld(iter, data);
+			pixel_put(data, color);
 			data->img.px_x++;
 		}
 		data->img.px_y++;
 	}
+	mlx_put_image_to_window(data->mlx, data->win, data->img.img_ptr, 0, 0);
 }

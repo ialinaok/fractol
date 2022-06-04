@@ -125,5 +125,26 @@ ok, to-do's for the day:
 DO SOME DUMB SHIT - just render sth else than mandelbrot
 
 gotta fix the lagging issue :')
-and find some nicer colors for Julia'same
+--->>> about that - after a talk with Constanin, apparently there's no need to keep
+the rendering function in a loop - instead, just call the render function when something changes
+in the key hook / mouse hook
+
+1 - check for the set
+2 - initialize the values of the edges
+3 - render the fractol
+4 - wait for the keys/mouse
+5 - if keypressed - render again or close
+
+and find some nicer colors for Julias
 and do the Sierpinsky triangle
+aaaannnddd add a key that will change the iteration value
+and zooming is waiting for you ;)
+ok, to finish up on the arrows - try to optimise it!
+you can copy most of the pixels to a different area in the screen
+and only generate the before unseen part 
+
+so, if a key was pressed - that means you moved for x pixels to one or the other direction
+then you copy from the 0,0 px of old image to x,y px of old image
+and you just continue that 
+and then you apply the fractal math to the rest of it
+
