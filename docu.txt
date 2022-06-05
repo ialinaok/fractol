@@ -148,3 +148,39 @@ then you copy from the 0,0 px of old image to x,y px of old image
 and you just continue that 
 and then you apply the fractal math to the rest of it
 
+oki, the zoom in part: 
+- let's start with imagining zooming in into zero. then the limits are changed proportiionally
+---> let's say, every mouse wheel 
+
+SO, learnings from Constantin:
+	* for every mouse button there's a different value
+		* for left click 1
+		* for right click 2
+		* for scroll down 4
+		* for scroll up 5
+		* for scroll right 6
+		* for scroll left 7
+	* I can get the mouse pos from the mouse_hook directly
+	* it gets triggerred multiple times (the wheel)
+	* the magic mouse it might be difficult - it's v sensitive
+
+--> for each trigger I can resize the window by x%
+--> I know the position of the mouse
+--> I can use the position of the mouse and the new limits that I want
+to calculate the percentages of how much of which scale I want to keep
+
+img addr - all px values are there
+to access them - I have to do the reverse operation
+so that I can access a color from a specific position
+so for the memmove - for y just works fine
+for x I have to call it in the loop for ecery line and define how much I want moved
+(how many pixels)
+line_length x the amount of pixels I want to move
+
+redesign the render function - change the conditions for the nested while loops, make them variables
+and then pass the values there
+you can put it all in the data struct anyways
+
+arrows don't work with zoom
+
+

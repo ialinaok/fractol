@@ -6,11 +6,11 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 17:44:43 by apielasz          #+#    #+#             */
-/*   Updated: 2022/05/26 15:46:28 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/05 18:06:00 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "helpers.h"
 
 void	pixel_put(t_data *data, int x, int y, int color)
 {

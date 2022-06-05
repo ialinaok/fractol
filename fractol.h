@@ -12,7 +12,7 @@
 
 #define WIN_X 936	// 1300
 #define WIN_Y 864	// 1200
-#define MAX_ITER 25
+#define MAX_ITER 255
 
 typedef	struct	s_opti
 {
@@ -24,7 +24,7 @@ typedef	struct	s_opti
 
 typedef struct	s_coordi
 {
-	double	x_min;
+	float	x_min;
 	double	x_max;
 	double	y_min;
 	double	y_max;
@@ -78,6 +78,8 @@ void	pixel_put(t_data *data, int color);
 int		close_x(t_data *data);
 void	arrow_moves(int keycode, t_data *data);
 void	put_image_to_image(void *dest, void *src, int x_offset, int y_offset);
+/* zoom.c */
+int	mouse_zoom(int button, int x, int y, t_data	*data);
 /* render.c */
 int	render(t_data *data);
 int	get_started(t_data *data);

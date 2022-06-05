@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:19:22 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/04 23:58:01 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/05 17:18:24 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,29 +47,29 @@ void	arrow_moves(int keycode, t_data *data)
 		data->screen.y_min = data->screen.y_min + 0.05;
 		data->screen.y_max = data->screen.y_max + 0.05;
 	}
-	put_image_to_image(&temp, &data->img, 18, 0);
+	// put_image_to_image(&temp, &data->img, 18, 0);
 	// data->img = temp;
 	render(data);
 }
 
-void	put_image_to_image(t_img *dest, t_img *src, int x_offset, int y_offset)
-{
-	int		y;
-	char	*dest_offset;
-	char	*src_offset;
+// void	put_image_to_image(t_img *dest, t_img *src, int x_offset, int y_offset)
+// {
+// 	int		y;
+// 	char	*dest_offset;
+// 	char	*src_offset;
 
-	y = y_offset;
-	while (y <= dest->px_y)
-	{
-		dest_offset = dest->addr + y * \
-			dest->line_length + x_offset * (dest->bits_per_pixel / 8);
-		src_offset = src->addr + \
-			(y - y_offset) * src->line_length;
-		// ft_memmove(dest_offset, src_offset, ((((t_img *)src)->px_x - x_offset) * 4));
-		ft_memmove(dest_offset, src_offset, 4);
-		y++;
-	}
-}
+// 	y = y_offset;
+// 	while (y <= dest->px_y)
+// 	{
+// 		dest_offset = dest->addr + y * \
+// 			dest->line_length + x_offset * (dest->bits_per_pixel / 8);
+// 		src_offset = src->addr + \
+// 			(y - y_offset) * src->line_length;
+// 		// ft_memmove(dest_offset, src_offset, ((((t_img *)src)->px_x - x_offset) * 4));
+// 		ft_memmove(dest_offset, src_offset, 4);
+// 		y++;
+// 	}
+// }
 
 // void	copy_image(t_data *data, int keycode)
 // {

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 23:42:59 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/04 16:57:56 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/05 17:28:41 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	render(t_data *data)
 		// dumb_shit(data);
 	}
 	else if (data->fractal_set == 1) // Julia_broccoli
-		normal_julia(data, -0.7269, 0.1889);
+		normal_julia(data, 0, 1);
 	else if (data->fractal_set == 2) // Julia_chineese
 		normal_julia(data, -0.835, -0.2321);
 	else if (data->fractal_set == 3) // Julia_snowflake

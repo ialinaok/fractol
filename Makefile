@@ -6,7 +6,7 @@
 #    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 10:26:31 by apielasz          #+#    #+#              #
-#    Updated: 2022/06/04 00:08:20 by apielasz         ###   ########.fr        #
+#    Updated: 2022/06/05 18:18:31 by apielasz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = gcc
 MLX = includes/mlx/libmlx.a -framework OpenGL -framework AppKit
 LIBFT = includes/libft/libft.a
 PRINTF = includes/ft_printf/libftprintf.a
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra
 SRCS = srcs/main.c \
 		srcs/utils.c \
 		srcs/window.c \
@@ -23,6 +23,7 @@ SRCS = srcs/main.c \
 		srcs/trgb.c \
 		srcs/colors.c \
 		srcs/render.c \
+		srcs/zoom.c \
 		fractals/mandelbrot.c \
 		fractals/julia.c
 

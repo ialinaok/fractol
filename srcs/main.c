@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 22:49:12 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/04 16:58:22 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/05 18:15:42 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char *argv[])
 	render(&data);
 	mlx_hook(data.win, 17, 0, &close_x, &data);
 	mlx_key_hook(data.win, &key_hooks, &data);
+	mlx_mouse_hook(data.win, mouse_zoom, &data);
 	mlx_loop(data.mlx);
 	mlx_destroy_window(data.mlx, data.win);
 	return (0);
