@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 23:44:56 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/04 16:58:45 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/06 13:32:10 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	normal_julia(t_data *data, double r, double i)
 		data->img.px_x = 0;
 		while (data->img.px_x < WIN_X)
 		{
-			z = mandelbrot_pxl_to_cmplx(data);
+			z = pxl_to_cmplx(data, data->img.px_x, data->img.px_y);
 			iter = normal_julia_iter(&z, c);
 			color = paint_my_wrld(iter, data);
 			pixel_put(data, color);

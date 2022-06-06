@@ -183,4 +183,20 @@ you can put it all in the data struct anyways
 
 arrows don't work with zoom
 
+<<< TO DO's >>>
+--- applied zooming into mouse position // done
+- change the way you handle iterations - change the number of iterations while running
+- add color range shift
+--- optimize the arrows // at it 
+--- add zoom factor to the arrows // at it // done
+- add third fractal
+--- fix the colors - don't make them translucents, bc then I'm overwriting more seethrough px
+with less seethrugh ones, and you can see old image in the background
+so fuck it
+delete t from trgb // done
 
+ok, so I have the thing divided by 5 - it's defining the amount of steps
+
+still doesn't work good. for y - super slow. and works anyways without it
+for x - it's gonna be more one way or the other
+what if you get the value of range instead and have the same value for all?

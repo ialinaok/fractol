@@ -12,7 +12,7 @@
 
 #define WIN_X 936	// 1300
 #define WIN_Y 864	// 1200
-#define MAX_ITER 100
+#define MAX_ITER 50
 
 typedef struct	s_coordi
 {
@@ -42,6 +42,8 @@ typedef struct	s_data
 	t_img		img;
 	int			fractal_set;
 	int			color_set;
+	int			width;
+	int			length;
 }				t_data;
 
 typedef struct	s_complex
@@ -74,7 +76,7 @@ void	put_image_to_image(void *dest, void *src, int x_offset, int y_offset);
 int		mouse_zoom(int button, int x, int y, t_data	*data);
 void	calc_distance(t_complex point, t_coordi *dist, t_data *data);
 /* render.c */
-int		render(t_data *data);
+int		render(t_data *data, int x, int y);
 int		get_started(t_data *data);
 int		dumb_colors(void);
 void	dumb_shit(t_data *data);
@@ -92,7 +94,7 @@ void	blue(int iterations, t_trgb *trgb);
 /* mandelbrot.c */
 void		mandelbrot_init(t_data *data);
 int			mandelbrot_iter(t_complex *c);
-void		mandelbrot(t_data *data);
+void		mandelbrot(t_data *data, int x, int y);
 /* julia.c */
 void	julia_init(t_data *data);
 int		normal_julia_iter(t_complex *z, t_complex c);
@@ -102,5 +104,7 @@ t_complex	multi_cmplx(t_complex z, t_complex c);
 t_complex	add_cmplx(t_complex z, t_complex *c);
 double		abs_of_cmplx(t_complex z);
 t_complex	pxl_to_cmplx(t_data *data, int x, int y);
+/* arrow.c */
+void	right_arrowkey(t_data *data, double x_range, double y_range);
 
 #endif

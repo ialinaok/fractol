@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 22:49:12 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/05 18:15:42 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/06 21:48:58 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 	data.img.img_ptr = mlx_new_image(data.mlx, WIN_X, WIN_Y);
 	data.img.addr = mlx_get_data_addr(data.img.img_ptr, \
 	&data.img.bits_per_pixel, &data.img.line_length, &data.img.endian);
-	render(&data);
+	render(&data, 0, 0);
 	mlx_hook(data.win, 17, 0, &close_x, &data);
 	mlx_key_hook(data.win, &key_hooks, &data);
 	mlx_mouse_hook(data.win, mouse_zoom, &data);

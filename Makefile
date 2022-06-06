@@ -6,7 +6,7 @@
 #    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 10:26:31 by apielasz          #+#    #+#              #
-#    Updated: 2022/06/05 18:18:31 by apielasz         ###   ########.fr        #
+#    Updated: 2022/06/06 21:07:05 by apielasz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS = srcs/main.c \
 		srcs/colors.c \
 		srcs/render.c \
 		srcs/zoom.c \
+		srcs/arrow.c \
 		fractals/mandelbrot.c \
 		fractals/julia.c
 
