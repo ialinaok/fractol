@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 21:07:27 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/07 18:52:31 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/08 06:46:27 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	left_arrowkey(t_data *data, double x_range)
 		i += data->img.line_length * 4;
 	}
 	data->width = 18;
-	data->screen.x_min = data->screen.x_min - ((18.0/WIN_X) * x_range);
-	data->screen.x_max = data->screen.x_max - ((18.0/WIN_X) * x_range);
+	data->screen.x_min = data->screen.x_min + ((18.0/WIN_X) * x_range);
+	data->screen.x_max = data->screen.x_max + ((18.0/WIN_X) * x_range);
 	render(data, 0, 0);
 	data->width = WIN_X;
 	data->length = WIN_Y;

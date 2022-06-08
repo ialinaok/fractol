@@ -14,7 +14,7 @@
 #define WIN_Y 864	// 1200
 #define Y_SIERP 1104
 #define X_SIERP 1104
-#define MAX_ITER 40
+#define MAX_ITER 50
 
 typedef struct	s_trgb
 {
@@ -108,7 +108,7 @@ int		burning_ship_iter(t_complex *c);
 void	burning_ship(t_data *data, int x, int y);
 /* sierpinsky.c */
 void	sierpinsky(t_data *data);
-void	draw_small_triangle(t_data *data, int x_y, int len);
+void	draw_small_triangle(t_data *data, int x, int y, int len, int tri);
 void	draw_small_triangle_1(t_data *data, int x_y, int len);
 void	draw_small_triangle_2(t_data *data, int x_y, int len);
 /* lines.c */
