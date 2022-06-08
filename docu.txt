@@ -200,3 +200,132 @@ ok, so I have the thing divided by 5 - it's defining the amount of steps
 still doesn't work good. for y - super slow. and works anyways without it
 for x - it's gonna be more one way or the other
 what if you get the value of range instead and have the same value for all?
+
+^that was sooo unnecessary hahah
+
+ok, 7.06
+- fixing the rest of copying functions // done for mandelbrot. wsup with julias?
+in data->width and data->length I set how far I render
+to the render function, I pass where the rendering begins
+- fix clicking outside of the window!!!!! // done
+- add a color range shift
+
+SIERPINSKI TRIANGLE
+function that draws line from one point to the other
+what needs to be done:
+- draw a horizontal line
+- draw a line 45 degrees
+
+how can I do it: put a pixel at the last position
+in the next line, the pixel is one pixel to the left
+and then you have to worry about spacing it in the window
+still, the function that draws these lines for the specific length
+and in the specific coordinates
+is gonna make it easy actually
+
+ok, draw the horizontal line:
+	- get an x and y where you'll put it -- y
+	- get a length
+
+draw vertical line:
+	- get an x and y where you'll put it -- x
+	- get the length
+
+draw 45 line
+	- get an x and y where you'll start
+	- get the length
+	- start at the starting pos
+	- every pixel up, you move a pixel to the side
+
+great, this is done. now I need to do it recursively...?
+
+so, until I hit a certain number, I want to draw new triangles, and
+I want to draw them in the exact positionS - yes, more than one.
+ok
+since the small triangles inside are kind of upside down, I first draw one
+big triangle (non-recursive function) and I have a recursive function that draws small triangles
+- I draw a big triangle. I call the function that draws mirrored triangles
+- I call the mini_triangle function again within itself - every time I call it within itself, 
+I draw one triangle
+next call: 3 triangles
+next call: 9 triangles
+every call, I draw more and more triangles. and I do that in different places.
+
+why do I need the x and y? to draw in the certain position. But I don't need them passed
+to the function 'sierpinsky'
+
+sierpinsky will call a function that draws a big triangle. and then it will call
+a recursive function that will draw the small triangles
+
+I have to draw a vertical and horizontal lines in the middle of the diagonal
+diagonal is length
+
+I cannot draw halfway through a pixel.... so let's divide as much as we can. 
+512 is a power of two. 
+
+or I could just start drawing at the same pixel (it will be rounded) and thus a lil moved
+but still, let's try to make as many proper as possible
+which I already have actually hehe
+so diagonal is length 512. and the bigtriangle starts at (176,176)
+
+what about the zoom...? later to that I guess
+when I zoom in, I have to increase the lengths of all the lines proportiionally
+do I add zooming into mouse pos? 
+I guess
+then I have to calculate the lengths proportionally - like the ranges in the fractol.
+I guess that works //shruggie
+and then it would be nice if I hook it with the zoom
+>>>>>or I can just zoom, re-render the image and then increase the iter
+
+so I need to hook iterations to the key
+>>>>>or I could decide a value at which new triangles are added
+
+.....DRAW SMALL TRIANGLES FUNCTION.....
+- draw horizontal and vertical lines in the middle of the diagonal
+this corresponds to the half of the previous x and y
+up for 1/2 of the prevoius length
+and left for 1/2 of the previous length
+and the diagonal: it draws from the top to the bottom
+and it starts from the previous x/2
+
+when I move with the arrow keys, I have to prolong or shorten the lines
+I will definitely use memmove???
+but how to I draw the bits of the lines?
+how do I even check if they're not complete?
+
+could I just draw again from scratch but with different values? I'd have to offset
+where the triangles begin. and offset the length
+doesnt seem impossible... but then I'd have to tell the small triangles where they begin also
+
+I need to generate a triangle in a different place.
+now I generate it in the half of the len
+
+how to make it recursive:
+for each iter the function needs to call itself 3 times more...
+so I could just reuse the old function and call it 3 times with different parameters
+len and x_y do not change - I could save them in the struct
+what changes is the factors bu which I multiply and divide - this I can also pass in the struct
+and divide
+
+but how to controoolllll
+
+ok, so I have this function drawing a triangle inside. I have it call itself with 
+different values once, then as many times as I need (iterations)
+and then it goes back all the way up to the end, and I call it with other ratio, 
+and then it just keeps going
+so there is one function and I'm passing different parameters
+
+now, I need to count how many times a function got called
+and have this value compared in if
+if it gets to == iter, I return sth
+
+so in between I return 1 + count, and when I'm done, I return 0
+
+for the colors - I want to have a function that will trigger an infinite
+loop that will stop when key pressed
+
+or with each space hit make it different
+how? I have to hook color function
+and I have to take the values and do what - recalculate?
+
+I could add color to the 

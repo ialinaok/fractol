@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:19:22 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/06 21:08:50 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/08 05:29:59 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ int	key_hooks(int keycode, t_data *data)
 		close_x(data);
 	if (keycode >= 123 && keycode <= 126)
 		arrow_moves(keycode, data);
+	if (keycode == 49 && data->color_set == 2)
+	{
+		data->f += 23;
+		printf("%f\n", data->f);
+		render(data, 0, 0);
+	}
 	return (0);
 }
 

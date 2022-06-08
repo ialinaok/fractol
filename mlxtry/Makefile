@@ -1,12 +1,13 @@
 NAME = try
 CC = gcc
 MLX = libmlx.a -framework OpenGL -framework AppKit
-CFLAGS = -Wall -Wextra -Werror
-SRCS = hello_bye.c \
-		pixel_put.c \
-		trgb_bitwise.c \
-		trgb_char_int.c \
-		
+CFLAGS = -Wall -Wextra 
+SRCS = line.c
+
+# hello_bye.c \
+# 		pixel_put.c \
+# 		trgb_bitwise.c \
+# 		trgb_char_int.c \
 
 # srcs for main (shader funct)
 # main.c\

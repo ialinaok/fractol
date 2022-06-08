@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   burning_ship.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 16:19:40 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/08 03:42:03 by apielasz         ###   ########.fr       */
+/*   Created: 2022/06/08 03:34:43 by apielasz          #+#    #+#             */
+/*   Updated: 2022/06/08 04:11:56 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-void	mandelbrot_init(t_data *data)
+void	burning_ship_init(t_data	*data)
 {
-	data->screen.x_min = -2;
-	data->screen.x_max = 0.6;
-	data->screen.y_min = -1.2;
-	data->screen.y_max = 1.2;
+	data->screen.x_min = -2.1;
+	data->screen.x_max = 1.3;
+	data->screen.y_min = -1.8;
+	data->screen.y_max = 1.3;
 }
 
-int	mandelbrot_iter(t_complex *c)
+int	burning_ship_iter(t_complex *c)
 {
 	int			i;
 	t_complex	z;
@@ -30,13 +30,15 @@ int	mandelbrot_iter(t_complex *c)
 	z.i = 0.0;
 	while (abs_of_cmplx(z) <= 2 && i < MAX_ITER)
 	{
+		z.r = fabs(z.r);
+		z.i = fabs(z.i);
 		z = add_cmplx(multi_cmplx(z, z), c);
 		i++;
 	}
 	return (i);
 }
 
-void	mandelbrot(t_data *data, int x, int y)
+void	burning_ship(t_data *data, int x, int y)
 {
 	t_complex	c;
 	int			i;
@@ -49,7 +51,7 @@ void	mandelbrot(t_data *data, int x, int y)
 		while (data->img.px_x < data->width)
 		{
 			c = pxl_to_cmplx(data, data->img.px_x, data->img.px_y);
-			i = mandelbrot_iter(&c);
+			i = burning_ship_iter(&c);
 			color = paint_my_wrld(i, data);
 			pixel_put(data, color);
 			data->img.px_x++;

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:43:49 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/05 18:06:30 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/07 19:52:02 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	main(void)
 	}
 	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
 	mlx_key_hook(vars.win, close, &vars);
-	mlx_loop_hook(vars.win, enter, &vars);
+	// mlx_loop_hook(vars.win, enter, &vars);
 	// mlx_hook(vars.win, 6, 1L<<4, enter, &vars);
 	// mlx_loop_hook(vars.win, leave, &vars);
 	mlx_loop(vars.mlx);

@@ -6,7 +6,7 @@
 #    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 10:26:31 by apielasz          #+#    #+#              #
-#    Updated: 2022/06/06 21:07:05 by apielasz         ###   ########.fr        #
+#    Updated: 2022/06/08 03:34:34 by apielasz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,11 @@ SRCS = srcs/main.c \
 		srcs/render.c \
 		srcs/zoom.c \
 		srcs/arrow.c \
+		srcs/lines.c \
 		fractals/mandelbrot.c \
-		fractals/julia.c
+		fractals/julia.c \
+		fractals/burning_ship.c \
+		fractals/sierpinsky.c
 
 OBJS = $(SRCS:.c=.o)
 

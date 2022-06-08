@@ -6,17 +6,17 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 17:44:43 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/05 18:06:00 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/07 20:37:50 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "helpers.h"
 
-void	pixel_put(t_data *data, int x, int y, int color)
+void	pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
 
